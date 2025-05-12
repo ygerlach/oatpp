@@ -184,8 +184,12 @@ public:
   Tree& operator [] (const type::String& key);
   const Tree& operator [] (const type::String& key) const;
 
+  Tree& operator [] (const char* key) { return operator[] (type::String(key)); }
+
   Tree& operator [] (v_uint64 index);
   const Tree& operator [] (v_uint64 index) const;
+
+  Tree& operator [] (int index) { return operator[] ( static_cast<v_uint64>(index)); }
 
   Type getType() const;
 
